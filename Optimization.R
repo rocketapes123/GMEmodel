@@ -5,7 +5,7 @@ simulation<- function(data, lmGME, prints=F, n, delta)
   analysestart<-as.data.table(add_predictions(as.data.frame(data),lmGME))
   analysestart$ÜRichtung<-ifelse(sign(analysestart$ReturnGME)==sign(analysestart$pred),1,0)
   analysestart$Fehler<-(analysestart$pred-analysestart$ReturnGME)
-  Gütestart <- (1-mean(analysestart$ÜRichtung))*10+mean(abs(analysestart$Fehler))
+  Gütestart <- (1-mean(analysestart$ÜRichtung))*50+mean(abs(analysestart$Fehler))
   coefs<-lmGME$coefficients
   lmGMEt<-lmGME
   for( i in 1:n)
@@ -24,7 +24,7 @@ simulation<- function(data, lmGME, prints=F, n, delta)
     analysetmp<-as.data.table(add_predictions(as.data.frame(data),lmGMEt))
     analysetmp$ÜRichtung<-ifelse(sign(analysetmp$ReturnGME)==sign(analysetmp$pred),1,0)
     analysetmp$Fehler<-(analysetmp$pred-analysetmp$ReturnGME)
-    Güte <- (1-mean(analysetmp$ÜRichtung))*10+mean(abs(analysetmp$Fehler))
+    Güte <- (1-mean(analysetmp$ÜRichtung))*50+mean(abs(analysetmp$Fehler))
     if(prints==T){print(Güte)}
     if (Güte <= Gütestart)
       
@@ -45,7 +45,7 @@ simulation<- function(data, lmGME, prints=F, n, delta)
 }
 
 
-lmGME<-simulation(data,lmGME,n=200000,delta=0.2, prints=F)
+lmGME<-simulation(data,lmGME,n=2000,delta=0.2, prints=F)
 
 
 ## Check Optimization:
@@ -53,7 +53,7 @@ lmGME<-simulation(data,lmGME,n=200000,delta=0.2, prints=F)
 analyse<-as.data.table(add_predictions(as.data.frame(data),lmGME))
 analyse$ÜRichtung<-ifelse(sign(analyse$ReturnGME)==sign(analyse$pred),1,0)
 analyse$Fehler<-(analyse$pred-analyse$ReturnGME)
-Güte <- (1-mean(analyse$ÜRichtung))*10+mean(abs(analyse$Fehler))
+Güte <- (1-mean(analyse$ÜRichtung))*50+mean(abs(analyse$Fehler))
 mean(analyse$ÜRichtung)
 mean(abs(analyse$Fehler))
 Güte
