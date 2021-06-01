@@ -8,12 +8,17 @@ input <- as.matrix(c(2,2,1138,1.09,16,2.721,1.62,1.79,2.47,-6.28,0,12.93,7.47,-0
 input <- as.matrix(c(1,0,1138,0.73,15,3.11,1.33,2.77,3.53,-0.65,9.68,-2.78,23.74,0.36,-3.5, 1.54)) ####  Values as of Monday, 2021/05/17
 input <- as.matrix(c(2,0,2520,-0.06,16,2.81,1.3,1.88,2.26,-6.28,0,12.93,1.64,-0.89,2.6, -0.25)) #### Values as of Tuesday, 2021/05/18
 input <- as.matrix(c(3,0,2026,-1.62,17,2.72,1.62,1.79,2.47,-1.44,0,0.04,0.57,0.18,-1.2,-0.86)) #### Values as of Wednesday, 2021/05/19
+input <- as.matrix(c(2,0,2040,-0.16,4,0.97,1.33,-2.79,-7.34,0,-0,-12.64,-1.51,-0.56,-2.1,0.18,0,62.05)) #### Dienstag 01.06.
 
 
 datainput<-as.data.frame(t(input))
 names(datainput)<-c("Weekday","Sett","Volume1HPM","Return1H","FTD","Beta.3M","Beta4W","Beta2W","Beta1W","BTC",
-                    "MaxPain","RGME_PD","RAMC_PD","ReturnAMPD","TenYCPD","ReturnSPY")
+                    "MaxPain","RGME_PD","RAMC_PD","ReturnAMPD","TenYCPD","ReturnSPY","RCTweetPD","RSIPD")
 datainput$FTD<-as.factor(datainput$FTD)
 datainput$Sett<-as.factor(datainput$Sett)
 datainput$Weekday<-as.factor(datainput$Weekday)
+datainput$RCTweetPD<-as.factor(datainput$RCTweetPD)
 predict(lmGME,datainput, interval = "confidence", level=0.95)
+predict(lmGMEorig,datainput, interval = "confidence", level=0.95)
+predict(lmGMEstep,datainput, interval = "confidence", level=0.95)
+predict(lmGMEstepOpt,datainput, interval = "confidence", level=0.95)
