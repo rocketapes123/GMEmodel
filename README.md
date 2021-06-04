@@ -27,3 +27,7 @@ Variable Explanation:
 - ReturnAMPD: Stock price movement of GME in Aftermarkt of previous trading day (Webull)
 - RCTweetPD: Has Ryan Cohen tweeted yesterday? (0, 1)
 - RSIPD: Daily RSI at the end of the previous day (Webull)
+- SP1H: Return of first hour Premarket Trading S&P
+- AMC1H: Return first hour trading AMC
+- MACDHISPD: Daily MACD Histogram value at the end of previous trading day (Webull)
+- mPlastPrice: Difference of current max pain price to the GME price at the end of the previous trading day in percent (swaggystocks)
