@@ -1,19 +1,16 @@
 ###### Input the following values pro prediction of this day: "Weekday","Sett","Volume1HPM","Return1H","FTD","Beta.3M","Beta4W","Beta2W",
 ###### "Beta1W","BTC","MaxPain","RGME_PD","RAMC_PD","ReturnAMPD","TenYCPD","ReturnSPY"
-input <- as.matrix(c(4,-1,2298,0.27,13,2.95,0.3,1.06,1.38,-13.32,-1.61,-1.45,2.69,0.91)) #### Values as of Thursday, 2021/05/13
-input <- as.matrix(c(5,0,3150,1.24,14,5,3.11,1.33,2.77,3.53,1.15,1.64,13.61,23.74,-1.82)) ### Values as of Friday, 2021/05/14
-input <- as.matrix(c(1,1,1138,1.09,15,2.81,1.3,1.88,2.26,-0.65,9.68,-2.78,1.64,0.36)) #### Values as of Monday, 2021/05/17
-input <- as.matrix(c(2,2,1138,1.09,16,2.721,1.62,1.79,2.47,-6.28,0,12.93,7.47,-0.89)) #### Values as of Tuesday, 2021/05/18
 
-input <- as.matrix(c(1,0,1138,0.73,15,3.11,1.33,2.77,3.53,-0.65,9.68,-2.78,23.74,0.36,-3.5, 1.54)) ####  Values as of Monday, 2021/05/17
-input <- as.matrix(c(2,0,2520,-0.06,16,2.81,1.3,1.88,2.26,-6.28,0,12.93,1.64,-0.89,2.6, -0.25)) #### Values as of Tuesday, 2021/05/18
-input <- as.matrix(c(3,0,2026,-1.62,17,2.72,1.62,1.79,2.47,-1.44,0,0.04,0.57,0.18,-1.2,-0.86)) #### Values as of Wednesday, 2021/05/19
-input <- as.matrix(c(2,0,2040,-0.16,4,0.97,1.33,-2.79,-7.34,0,-0,-12.64,-1.51,-0.56,-2.1,0.18,0,62.05)) #### Dienstag 01.06.
+input <- as.matrix(c(2,0,15527,3.52,4,0.97,1.33,-2.79,-7.34,4.5,-0,-12.64,-1.51,-0.56,-2.1,0.18,0,62.05,0.3,12.09,-1.2)) #### Dienstag 01.06.
+input <- as.matrix(c(3,0,15527,1.25,5,0.89,1.19,-1.03,-6.51,-1.74,2.5,12.17,22.66,2.96,2.9,-0.09,0,67.54,-0.04,8.25,0.46)) #### Mittwoch 02.06.
+input <- as.matrix(c(4,0,15527,1.25,6,1.24,1.24,-2.02,-21.3,2.67,7.32,13.34,95.22,0.62,-2.5,0.16,0,72.75,-0.04,0,1.85)) #### Donnerstag 03.06.
+input <- as.matrix(c(5,0,5117,-0.05,7,1.24,1.24,-2.02,-21.3,0.79,4.55,-8.52,-17.92,-0.74,3.7,-0.37,1,64.65,0.11,1.71,-1.05,-10.91)) #### Friday 04.06.
 
 
 datainput<-as.data.frame(t(input))
 names(datainput)<-c("Weekday","Sett","Volume1HPM","Return1H","FTD","Beta.3M","Beta4W","Beta2W","Beta1W","BTC",
-                    "MaxPain","RGME_PD","RAMC_PD","ReturnAMPD","TenYCPD","ReturnSPY","RCTweetPD","RSIPD")
+                    "MaxPain","RGME_PD","RAMC_PD","ReturnAMPD","TenYCPD","ReturnSPY","RCTweetPD","RSIPD"
+                    ,"SP1H","AMC1H","MACDHISTPD","mPlastPrice")
 datainput$FTD<-as.factor(datainput$FTD)
 datainput$Sett<-as.factor(datainput$Sett)
 datainput$Weekday<-as.factor(datainput$Weekday)
